@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints 0-9
+ * main - Prints 0-9 separated by commas
  *
  * Return: 0 Always success
  */
