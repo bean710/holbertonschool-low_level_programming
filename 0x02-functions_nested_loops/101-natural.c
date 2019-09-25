@@ -11,7 +11,7 @@ int main(void)
 
 	for (i = 0; i < 1024; i += 5)
 	{
-		if (i % 3 == 0)
+		if (i % 3 != 0)
 			s += i;
 	}
 
