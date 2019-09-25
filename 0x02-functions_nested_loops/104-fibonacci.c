@@ -1,13 +1,17 @@
-#include "holberton.h"
 #include <stdio.h>
 
-int main(void) 
+/**
+ * main - Prints the first 98 fibonacci numbers, starting with 1, 2
+ *
+ * Return: Always 0
+ */
+int main(void)
 {
 	unsigned long int a, ao;
 	unsigned long int b, bo;
 	unsigned long int c, co;
 	int i;
-	
+
 	a = 1;
 	ao = 0;
 	b = 2;
@@ -36,5 +40,5 @@ int main(void)
 		printf("%lu", c);
 	}
 	printf("\n");
-	return 0;
+	return (0);
 }
