@@ -10,3 +10,8 @@ void jack_bauer(void);
 void times_table(void);
 int add(int, int);
 void print_to_98(int);
+
+void print_times_table(int);
+int _pow(int, int);
+int getlen(int);
+int getnum(int, int);
