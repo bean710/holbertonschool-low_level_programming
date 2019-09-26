@@ -12,7 +12,7 @@ int main(void)
 
 	for (i = 1; i <= 100; i++)
 	{
-		if (i != 0)
+		if (i != 1)
 			printf(" ");
 
 		if (i % 3 == 0)
