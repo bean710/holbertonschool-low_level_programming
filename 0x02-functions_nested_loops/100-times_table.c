@@ -54,13 +54,16 @@ int _pow(int a, int b)
 {
 	int i, ans;
 
+	if (b <= 0)
+		return (1);
+
 	ans = a;
 	for (i = 0; i < b - 1; i++)
 	{
-		ans *= ans;
+		ans *= a;
 	}
 
-	return (b > 0 ? ans : 1);
+	return (ans);
 }
 
 /**
