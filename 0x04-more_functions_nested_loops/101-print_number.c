@@ -11,11 +11,14 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		for (i = 0; i < getlen(n); i++)
+			_putchar('0' + -getnum(n, i));
 	}
-
-	for (i = 0; i < getlen(n); i++)
-		_putchar('0' + getnum(n, i));
+	else
+	{
+		for (i = 0; i < getlen(n); i++)
+			_putchar('0' + getnum(n, i));
+	}
 }
 
 /**
@@ -65,7 +68,7 @@ int getlen(int num)
 	int i;
 
 	i = 1;
-	while (num > 9)
+	while (num > 9 || num < -9)
 	{
 		i++;
 		num /= 10;
