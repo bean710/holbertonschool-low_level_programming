@@ -41,7 +41,7 @@ int _pow(int a, int b)
 		ans *= a;
 	}
 
-	return (ans)
+	return (ans);
 }
 
 /**
