@@ -8,8 +8,10 @@
  */
 int _atoi(char *s)
 {
-	int neg, num;
+	unsigned int num;
+	int neg;
 
+	neg = 1;
 	num = 0;
 
 	for (; *s; s++)
@@ -25,13 +27,9 @@ int _atoi(char *s)
 		}
 		else if (*s == '-')
 		{
-			neg--;
-		}
-		else if (*s == '+')
-		{
-			neg++;
+			neg = -neg;
 		}
 	}
 
-	return ((neg < 0) ? -num : num);
+	return (num * neg);
 }
