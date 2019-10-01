@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * rev_string - Reverses a string in place
@@ -22,9 +21,6 @@ void rev_string(char *s)
 	s++;
 
 	str[i] = '\0';
-
-	printf("%s\n", str);
-
 
 	for (i = 0; str[i]; i++)
 		s[i] = str[i];
