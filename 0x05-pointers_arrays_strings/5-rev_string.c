@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * rev_string - Prints a string backwards
+ * rev_string - Reverses a string in place
  * @s: pointer to the first character in the string
  */
 void rev_string(char *s)
