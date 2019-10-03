@@ -3,7 +3,7 @@
 /**
  * _strcat - Concatonates two strings
  * @dest: Pointer to both the first sting and the destination for the
- *	  Concatonated string
+ *		Concatonated string
  * @src: Pointer to the second string
  *
  * Return: Pointer to the resulting string
@@ -17,7 +17,7 @@ char *_strcat(char *dest, char *src)
 	p--;
 
 	for (; *src; src++, p++)
-	 	*p = *src;
+		*p = *src;
 	*p = '\0';
 
 	return (dest);
