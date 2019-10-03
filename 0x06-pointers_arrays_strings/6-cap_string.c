@@ -14,6 +14,9 @@ char *cap_string(char *a)
 	char *tmp;
 	int diff = ('a' - 'A');
 
+	if (*p >= 'a' && *p <= 'z')
+		*p -= diff;
+
 	for (; *p; p++)
 	{
 		for (s = seps; *s; s++)
