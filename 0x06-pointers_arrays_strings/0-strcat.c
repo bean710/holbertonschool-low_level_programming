@@ -14,6 +14,7 @@ char *_strcat(char *dest, char *src)
 
 	for (; *p; p++)
 		;
+	p--;
 
 	for (; *src; src++, p++)
 	 	*p = *src;
