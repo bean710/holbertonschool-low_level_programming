@@ -3,7 +3,8 @@
 
 /**
  * reverse_array - Reverses an array of integers in place
- * @s: pointer to the first item in the array 
+ * @a: pointer to the first item in the array
+ * @n: number of items in the array
  */
 void reverse_array(int *a, int n)
 {
