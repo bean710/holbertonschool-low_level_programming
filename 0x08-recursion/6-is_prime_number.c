@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * is_prime_numer - checks if number is prime
+ * is_prime_number - checks if number is prime
  * @n: number to check
  *
  * Return: 1 if prime, otherwise 0
