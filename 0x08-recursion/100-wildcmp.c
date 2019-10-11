@@ -43,8 +43,8 @@ int compare(char *string1, char *string2, char *cpy_string2)
 
 /**
  * wildcmp - Compares two strings with support for string2 to have wildcards
- * @string1: Pointer to first character in string to compare to
- * @string2: Pointer to the first character in the string with wildcards
+ * @s1: Pointer to first character in string to compare to
+ * @s2: Pointer to the first character in the string with wildcards
  *
  * Return: 1 if are similar, 0 if not
  */
