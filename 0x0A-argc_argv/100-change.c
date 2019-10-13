@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	input = _atoi(argv[1]);
+	input = atoi(argv[1]);
 
 	if (input < 0)
 	{
@@ -44,12 +44,12 @@ int main(int argc, char **argv)
 }
 
 /**
- * _atoi - Converts a string to an integer
+ * atoi - Converts a string to an integer
  * @s: pointer to the first character of the string
  *
  * Return: Value of integer in string
  */
-int _atoi(char *s)
+int atoi(char *s)
 {
 	unsigned int num;
 	int neg;
