@@ -34,6 +34,14 @@ int _atoi(char *s)
 	return (num * neg);
 }
 
+/**
+ * main - Prints minimum number of coins needed to get cents
+ * @argc: number of arguments including command name
+ * @argv: Pointer to array of pointers to arguments as strings including
+ *			command name
+ *
+ * Return: 0 for success, 1 for error
+ */
 int main(int argc, char **argv)
 {
 	int input, coinnum = 0;
