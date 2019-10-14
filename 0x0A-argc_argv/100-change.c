@@ -11,7 +11,7 @@
  */
 int main(int argc, char **argv)
 {
-	int input, coinnum = 0;
+	long int input, coinnum = 0;
 	int coins[5] = {25, 10, 5, 2, 1};
 	int i;
 
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 		}
 	}
 
-	printf("%d\n", coinnum);
+	printf("%li\n", coinnum);
 
 	return (0);
 }
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
  *
  * Return: Value of integer in string
  */
-int atoi(char *s)
+long int atoi(char *s)
 {
 	unsigned int num;
 	int neg;
