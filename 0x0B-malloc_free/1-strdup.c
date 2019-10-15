@@ -1,6 +1,12 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+/**
+ * _strdup - Duplicates a string
+ * @str: pointer to the first character in the source string
+ *
+ * Return: Pointer to the first character in the duplicate string
+ */
 char *_strdup(char *str)
 {
 	int len, i;
