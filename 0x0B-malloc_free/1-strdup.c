@@ -12,6 +12,9 @@ char *_strdup(char *str)
 	unsigned int len, i;
 	char *dest;
 
+	if (str == NULL)
+		return (NULL);
+
 	for (len = 0; str[len]; len++)
 		;
 	len++;
