@@ -1,6 +1,10 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+/**
+ * freemem - frees the memory of an array of pointers pointing to arrays
+ * @d: pointer to first pointer in array
+ */
 void freemem(int **d)
 {
 	int i;
@@ -12,6 +16,15 @@ void freemem(int **d)
 	free(d);
 }
 
+/**
+ * alloc_grid - allocates space for `height` number of int arrays length
+ *				`width` filled with zeros
+ * @width: the length of each array
+ * @height: the number of arrays
+ *
+ * Return: Pointer to first element in array of pointers, each pointing to
+ *			first item in array of integers.
+ */
 int **alloc_grid(int width, int height)
 {
 	int **dest;
@@ -39,4 +52,4 @@ int **alloc_grid(int width, int height)
 	}
 
 	return (dest);
-}	
+}
