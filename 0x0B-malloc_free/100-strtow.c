@@ -36,7 +36,7 @@ char **strtow(char *str)
 
 		wordsize = j - i;
 		dest[onword] = malloc(sizeof(char) * (wordsize + 1));
-		if (dest[onword] == NULL)
+		if (wordcount == 0 || dest[onword] == NULL)
 		{
 			freememc(dest);
 			return (NULL);
@@ -49,7 +49,7 @@ char **strtow(char *str)
 			i--;
 		onword++;
 	}
-	return ((wordcount == 0) ? NULL : dest);
+	return (dest);
 }
 
 
