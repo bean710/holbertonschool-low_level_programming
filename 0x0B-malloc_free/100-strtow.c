@@ -20,6 +20,8 @@ char **strtow(char *str)
 		return (NULL);
 
 	wordcount = get_wordcount(str);
+	if (!wordcount)
+		return (NULL);
 
 	dest = malloc(sizeof(char *) * (wordcount + 1));
 	if (dest == NULL)
@@ -30,13 +32,11 @@ char **strtow(char *str)
 	{
 		if (str[i] == ' ')
 			continue;
-
 		for (j = i; str[j] && str[j] != ' '; j++)
 			;
-
 		wordsize = j - i;
 		dest[onword] = malloc(sizeof(char) * (wordsize + 1));
-		if (wordcount == 0 || dest[onword] == NULL)
+		if (dest[onword] == NULL)
 		{
 			freememc(dest);
 			return (NULL);
