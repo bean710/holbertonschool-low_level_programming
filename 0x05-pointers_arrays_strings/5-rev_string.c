@@ -7,21 +7,20 @@
  */
 void rev_string(char *s)
 {
-	int len, i;
+	int i;
+	char tmp;
 	char *str;
 
-	for (len = 0; *s; s++)
-		len++;
+	for (i = 0; s[i]; i++)
+		;
+	i--;
 
-	str = malloc(sizeof(char) * len);
-	s--;
+	str = (s + i);
 
-	for (i = 0; i < len; i++)
-		str[i] = *(s--);
-	s++;
-
-	str[i] = '\0';
-
-	for (i = 0; str[i]; i++)
-		s[i] = str[i];
+	for (; s < str; s++, str--)
+	{
+		tmp = *s;
+		*s = *str;
+		*str = tmp;
+	}
 }
