@@ -14,9 +14,7 @@ char **strtow(char *str)
 	int wordcount, onword = 0, wordsize;
 	int i, j, w;
 
-	if (str == NULL)
-		return (NULL);
-	if (str[0] == '\0')
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
 	wordcount = get_wordcount(str);
