@@ -1,12 +1,18 @@
 #include "holberton.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int len1 = _strlen(s1);
-	unsigned int len2 = _strlen(s2);
-	char *cat = malloc(sizeof(char) * (len1 + len2 + 1));
+	char *cat;
 	unsigned int i, count = 0;
+
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	cat = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2) + 1));
 
 	if (cat == NULL)
 		return (NULL);
@@ -30,7 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
  */
 unsigned int _strlen(char *s)
 {
-	int i;
+	int i = 0;
 
 	for (; *s != '\0'; s++)
 		i++;
