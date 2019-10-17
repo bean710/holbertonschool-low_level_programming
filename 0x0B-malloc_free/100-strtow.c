@@ -41,19 +41,17 @@ char **strtow(char *str)
 			freememc(dest);
 			return (NULL);
 		}
-
 		for (w = 0; str[i] && str[i] != ' '; i++, w++)
 			dest[onword][w] = str[i];
 		dest[onword][w] = '\0';
 
 		if (!str[i])
 			i--;
-
 		onword++;
 	}
-
-	return (dest);
+	return ((wordcount == 0) ? NULL : dest);
 }
+
 
 /**
  * freememc - frees the memory of an array of pointers pointing to arrays
