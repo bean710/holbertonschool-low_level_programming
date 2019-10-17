@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * string_nconcat - Makes a new string containing `s1` and the first `n` bytes
+ *                  of `s2`
+ * @s1: Pointer to the first character of the first string
+ * @s2: Pointer to the first character of the second string
+ * @n: Number of bytes to copy from `s2`
+ *
+ * Return: Pointer to the first character in the concatonated string
+ */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *cat;
