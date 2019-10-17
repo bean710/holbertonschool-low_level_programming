@@ -1,6 +1,13 @@
 #include "holberton.h"
 #include <stdlib.h>
 
+/**
+ * _calloc - Allocates memory and fills it with zero
+ * @nmemb: Size in bytes of each element
+ * @size: number of elements to allocate room for
+ *
+ * Return: Void pointer to the first adress in the newly allocated memory
+ */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *newmem;
