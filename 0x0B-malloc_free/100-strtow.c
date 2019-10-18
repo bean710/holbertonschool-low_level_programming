@@ -84,6 +84,8 @@ int get_wordcount(char *c)
 			for (; c[i] && c[i] != ' '; i++)
 				;
 		}
+		if (!c[i])
+			c--;
 	}
 
 	return (count);
