@@ -101,7 +101,7 @@ char *_tosize(char *c, unsigned int size)
 char *_addstr(char *s1, char *s2)
 {
 	char *sum;
-	char *o1 = s1; /*, *o2 = s2;*/
+	char *o1; /* = s1; *, *o2 = s2;*/
 	unsigned int temp;
 	unsigned int len1, len2;
 	
@@ -120,6 +120,8 @@ char *_addstr(char *s1, char *s2)
 		s2 = _tosize(s2, len1);
 	else
 		s1 = _tosize(s1, len2);
+
+	o1 = s1;
 
 	printf("New add: %s and %s\n", s1, s2);
 	for (; *s1; s1++)
