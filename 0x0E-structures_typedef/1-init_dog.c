@@ -1,5 +1,5 @@
 #include "dog.h"
-#include "holberton.h"
+#include <stddef.h>
 
 /**
  * init_dog - Initializes a dog struct
