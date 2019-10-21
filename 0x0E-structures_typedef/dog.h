@@ -8,12 +8,12 @@
  * @owner: The name of the owner of the dog as a pointer to the first character
  * of a string
  */
-struct dog
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
