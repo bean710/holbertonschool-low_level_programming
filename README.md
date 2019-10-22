@@ -1,5 +1,6 @@
 Learning low-level programming via C
 ----
+This repo contains many projects which were created for/while learning about every aspect of low-level programming using C
 Project Directory | Project Topics/Tasks
 ------------------|---------------------
 [0x00-hello_world](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x00-hello_world) | Understanding and using `main`, `gcc`, and some print functions
@@ -17,3 +18,6 @@ Project Directory | Project Topics/Tasks
 [0x0C-more_malloc_free](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x0C-more_malloc_free) | Using `malloc` to concatonate `n` characters of a string to another, reallocate memory, and fill newly allocated memory while making sure the space was properly allocated
 [0x0D-preprocessor](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x0D-preprocessor) | Using preprocessor directives to make simple math functions and make readable constants
 [0x0E-structures_typedef](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x0E-structures_typedef) | Using structs for a basic introduction of their functionality
+Documentation By
+---
+[Ben Keener](https://github.com/bean710/)
