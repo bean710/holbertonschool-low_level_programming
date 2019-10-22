@@ -53,13 +53,37 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	tname = dup_string(name);
 	if (tname == NULL)
+	{
+		free_dog(ret);
 		return (NULL);
+	}
 	ret->name = tname;
 
 	towner = dup_string(owner);
 	if (towner == NULL)
+	{
+		free_dog(ret);
 		return (NULL);
+	}
 	ret->owner = towner;
 
 	return (ret);
+}
+
+/**
+ * free_dog - Frees all memory allocated by a dog_t struct
+ * @d: Pointer to the struct to be freed
+ */
+void free_dog(dog_t *d)
+{
+	if (d == NULL)
+		return;
+
+	if (d->name != NULL)
+		free(d->name);
+
+	if (d->owner != NULL)
+		free(d->owner);
+
+	free(d);
 }
