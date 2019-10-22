@@ -1,6 +1,7 @@
 Learning low-level programming via C
 ----
 This repo contains many projects which were created for/while learning about every aspect of low-level programming using C
+
 Project Directory | Project Topics/Tasks
 ------------------|---------------------
 [0x00-hello_world](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x00-hello_world) | Understanding and using `main`, `gcc`, and some print functions
