@@ -1,6 +1,10 @@
 #include "dog.h"
 #include <stddef.h>
 
+/**
+ * free_dog - Frees all memory allocated by a dog_t struct
+ * @d: Pointer to the struct to be freed
+ */
 void free_dog(dog_t *d)
 {
 	if (d == NULL)
