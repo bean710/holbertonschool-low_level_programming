@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 	if (b == 0 && (*argv[2] == '/' || *argv[2] == '%'))
 	{
 		printf("Error\n");
-		exit(98);
+		exit(100);
 	}
 
 	func_to_use = get_op_func(argv[2]);
