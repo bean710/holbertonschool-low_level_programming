@@ -23,8 +23,8 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	a = _atoi(argv[1]);
-	b = _atoi(argv[3]);
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 
 	if (b == 0 && (*argv[2] == '/' || *argv[2] == '%'))
 	{
