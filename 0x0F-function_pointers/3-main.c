@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include "3-calc.h"
 
+/**
+ * main - Prints result of math with certain operators
+ * @argc: Number of arguments passed to the program
+ * @argv: Pointer to the first pointer in an array of pointers which each
+ * point to the first character in the string version of each argument passed
+ * to the program
+ *
+ * Return: 0 for success
+ */
 int main(int argc, char **argv)
 {
 	int a, b;
