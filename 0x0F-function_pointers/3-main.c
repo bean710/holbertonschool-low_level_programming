@@ -33,6 +33,11 @@ int main(int argc, char **argv)
 	}
 
 	func_to_use = get_op_func(argv[2]);
+	if (func_to_use == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
 	res = func_to_use(a, b);
 
