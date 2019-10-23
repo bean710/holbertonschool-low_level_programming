@@ -33,12 +33,11 @@ int _atoi(char *s)
 	}
 
 	return (num * neg);
-} 
+}
 
 int main(int argc, char **argv)
 {
-	char *src =
-		"554889e54883ec20897dec488975e048c745f8f807400837dec027414\
+	char *src = "554889e54883ec20897dec488975e048c745f8f807400837dec027414\
 bf99094000e819feffffbf01000000e84ffeffff488b45e04883c0084\
 88b004889c7e839ffffff8945f4c745f000000000eb4e837df000740a\
 bf20000000e8d0fdffff8b45f04898488d5001488b45f84801d00fb60\
@@ -56,7 +55,7 @@ fb60084c074118b45f089c2c1ea1f01d0d1f83b45f47c8dbf0a000000\
 
 	n = _atoi(argv[1]);
 
-	for(i = 0; src[i] && i/2 < n; i += 2)
+	for (i = 0; src[i] && i / 2 < n; i += 2)
 	{
 		if (i != 0)
 			printf(" ");
