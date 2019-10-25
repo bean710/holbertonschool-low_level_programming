@@ -23,6 +23,7 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0;
 	va_list valist;
 	char *svar;
+	char *tmp;
 
 	va_start(valist, format);
 
@@ -49,7 +50,10 @@ void print_all(const char * const format, ...)
 
 			case 's':
 				svar = va_arg(valist, char *);
-				printf("%s", (svar ? svar : "(nil)"));
+				tmp = svar;
+				if (svar == NULL)
+					tmp = "(nil)";
+				printf("%s", tmp);
 				break;
 		}
 
