@@ -1,6 +1,12 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 
+/**
+ * sum_them_all - Adds all of the argumens
+ * @n: Number of arguments
+ *
+ * Return: Sum of n number of arguments given
+ */
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list valist;
