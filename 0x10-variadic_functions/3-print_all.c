@@ -25,8 +25,7 @@ void print_all(const char * const format, ...)
 	char *svar;
 	char *tmp;
 
-	if (format != NULL)
-		va_start(valist, format);
+	va_start(valist, format);
 
 	i = 0;
 	while (format != NULL && format[i])
@@ -57,6 +56,5 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
-	if (format != NULL)
-		va_end(valist);
+	va_end(valist);
 }
