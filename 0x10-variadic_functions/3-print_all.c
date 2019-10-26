@@ -25,11 +25,11 @@ void print_all(const char * const format, ...)
 	char *svar;
 	char *tmp;
 
-	va_start(valist, format);
+	if (format != NULL)
+		va_start(valist, format);
 
 	i = 0;
-
-	while (format[i])
+	while (format != NULL && format[i])
 	{
 		if (i != 0 && is_match(format[i]))
 			printf(", ");
@@ -39,15 +39,12 @@ void print_all(const char * const format, ...)
 			case 'c':
 				printf("%c", va_arg(valist, int));
 				break;
-
 			case 'i':
 				printf("%d", va_arg(valist, int));
 				break;
-
 			case 'f':
 				printf("%f", va_arg(valist, double));
 				break;
-
 			case 's':
 				svar = va_arg(valist, char *);
 				tmp = svar;
@@ -60,6 +57,6 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
-
-	va_end(valist);
+	if (format != NULL)
+		va_end(valist);
 }
