@@ -21,6 +21,7 @@ int is_match(char c)
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0;
+	int flag = 0;
 	va_list valist;
 	char *svar;
 	char *tmp;
@@ -30,26 +31,26 @@ void print_all(const char * const format, ...)
 	i = 0;
 	while (format != NULL && format[i])
 	{
-		if (i != 0 && is_match(format[i]))
+		if (flag != 0 && is_match(format[i]))
 			printf(", ");
 
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(valist, int));
+				flag += printf("%c", va_arg(valist, int));
 				break;
 			case 'i':
-				printf("%d", va_arg(valist, int));
+				flag += printf("%d", va_arg(valist, int));
 				break;
 			case 'f':
-				printf("%f", va_arg(valist, double));
+				flag += printf("%f", va_arg(valist, double));
 				break;
 			case 's':
 				svar = va_arg(valist, char *);
 				tmp = svar;
 				if (svar == NULL)
 					tmp = "(nil)";
-				printf("%s", tmp);
+				flag += printf("%s", tmp);
 				break;
 		}
 
