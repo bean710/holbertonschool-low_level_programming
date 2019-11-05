@@ -9,10 +9,7 @@
  */
 size_t print_listint_safe(const listint_t *h)
 {
-	size_t len;
-
-	if (!h)
-		exit(98);
+	size_t len = 0;
 
 	for (len = 0; h; h = h->next, len++)
 	{
