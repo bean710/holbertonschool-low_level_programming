@@ -17,7 +17,7 @@ size_t print_listint_safe(const listint_t *h)
 		if ((void *)h->next > (void *)h)
 		{
 			printf("-> [%p] %d\n", (void *)h->next, h->next->n);
-			return (len + 1);
+			exit(98);
 		}
 	}
 
