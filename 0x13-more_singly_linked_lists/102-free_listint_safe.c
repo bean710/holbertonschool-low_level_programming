@@ -9,12 +9,12 @@
 size_t free_listint_safe(listint_t **head)
 {
 	listint_t *next;
-	size_t len;
+	size_t len = 0;
 
 	if (!head || !(*head))
 		return (0);
 
-	for (len = 0; *head; *head = next, len++)
+	for (; *head; *head = next, len++)
 	{
 		next = (*head)->next;
 		if ((void *)next > (void *)*head)
