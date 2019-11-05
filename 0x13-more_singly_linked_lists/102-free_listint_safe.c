@@ -1,6 +1,12 @@
 #include "lists.h"
 #include <stdio.h>
 
+/**
+ * print_listint_safe - Prints a linked list containing integers
+ * @h: Address of the first item in the list
+ *
+ * Return: Length of the linked list
+ */
 size_t free_listint_safe(listint_t **h)
 {
 	listint_t *node = *h, *next;
