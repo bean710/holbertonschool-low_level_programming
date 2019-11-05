@@ -22,7 +22,7 @@ size_t free_listint_safe(listint_t **h)
 		free(node);
 		len++;
 
-		if ((void *)node < (void *)next)
+		if ((void *)node <= (void *)next)
 		{
 			*h = NULL;
 			break;
