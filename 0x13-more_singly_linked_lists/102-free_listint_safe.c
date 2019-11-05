@@ -2,10 +2,10 @@
 #include <stdio.h>
 
 /**
- * print_listint_safe - Prints a linked list containing integers
+ * free_listint_safe - Frees a linked list containing integers
  * @h: Address of the first item in the list
  *
- * Return: Length of the linked list
+ * Return: Length of the freed list
  */
 size_t free_listint_safe(listint_t **h)
 {
