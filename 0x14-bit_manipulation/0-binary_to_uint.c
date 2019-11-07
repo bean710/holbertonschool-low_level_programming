@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * binary_to_uint - Converts a binary string to an unsigned integer
+ * @b: Pointer to the first charater of the string to be converted
+ *
+ * Return: Unsigned integer value of the binary string
+ */
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int len, n;
