@@ -11,11 +11,11 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned int mask = 1;
 
-	if (index >= sizeof(unsigned long int) * CHAR_BIT -1 || n == NULL)
+	if (index >= sizeof(unsigned long int) * CHAR_BIT - 1 || n == NULL)
 		return (-1);
 
 	mask = mask << index;
-	
+
 	*n = *n | mask;
 
 	return (1);
