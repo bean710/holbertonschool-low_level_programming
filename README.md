@@ -20,6 +20,11 @@ Project Directory | Project Topics/Tasks
 [0x0D-preprocessor](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x0D-preprocessor) | Using preprocessor directives to make simple math functions and make readable constants
 [0x0E-structures_typedef](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x0E-structures_typedef) | Using structs for a basic introduction of their functionality
 [0x0F-function_pointers](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x0F-function_pointers) | Using function pointers to run different functions depending on each situation
+[0x10-variadic_functions](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x10-variadic_functions) | Using variadic functions to do simple math functions
+[Printf](https://github.com/bean710/printf) | Writing a fully functional printf function from scratch
+[0x12-singly_linked_lists](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x12-singly_linked_lists) | Using singly linked lists to easily pass around, print, and manipulate strings
+[0x13-more_singly_linked_lists](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x13-more_singly_linked_lists) | Using singly linked lists to manipulate sets of integers, along with detecting and dealing with loops in a linked list
+[0x14-bit_manipulation](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x14-bit_manipulation) | Using bitwise operators to get, set and otherwise manipulate the bit values of a number
 
 Documentation By
 ---
