@@ -28,7 +28,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (status < 0 || status != ret)
 		return (0);
 
-	if (!close(desc))
+	if (close(desc))
 		return (0);
 
 	return (ret);
