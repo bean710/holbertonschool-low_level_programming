@@ -1,0 +1,71 @@
+#include "holberton.h"
+
+/**
+ * main - Copies the data from one file to another
+ * @argc: The number of arguments passed, including the command
+ * @argv: Pointer to the first pointer in an array of pointers each pointing
+ * to the first character in a string containing each argument, including the
+ * command
+ *
+ * Return: 1 for success
+ */
+int main(int argc, char **argv)
+{
+	ssize_t fd_to, fd_from;
+	ssize_t read_res, write_res;
+	char buffer[1024];
+
+	if (argc != 3)
+	{
+		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 28);
+		exit(97);
+	}
+
+	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd_to < 0)
+		printerr("Error: Can't write to ", argv[2], 99);
+
+	fd_from = open(argv[1], O_RDONLY);
+	if (fd_from < 0)
+		printerr("Error: Can't read from ", argv[1], 98);
+
+	do {
+		read_res = read(fd_from, buffer, 1024);
+		if (read_res < 0)
+			printerr("Error: Can't read from file ", argv[1], 98);
+
+		write_res = write(fd_to, buffer, read_res);
+		if (write_res < 0)
+			printerr("Error: Can't write to ", argv[2], 99);
+	} while (write_res == 1024);
+
+	if (close(fd_from))
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", (int)fd_from);
+
+	if (close(fd_to))
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", (int)fd_to);
+
+	return (0);
+}
+
+/**
+ * printerr - Prints an error and exits with a certain status
+ * @msg: The message to be printed with the error
+ * @file: String to be printed at the end of the error
+ * @status: Status to be exited with
+ */
+void printerr(char *msg, char *file, int status)
+{
+	unsigned int msgsize;
+	int i;
+	char n = '\n';
+
+	for (msgsize = 0; msg[msgsize]; msgsize++)
+		;
+	write(STDERR_FILENO, msg, msgsize);
+	for (i = 0; file[i]; i++)
+		;
+	write(STDERR_FILENO, file, i);
+	write(STDERR_FILENO, &n, 1);
+	exit(status);
+}
