@@ -18,5 +18,6 @@ void printdata(char *buffer);
 void printversion(char *buffer);
 void printos(char *buffer);
 void printabversion(char *buffer);
+void err(char *msg);
 
 #endif

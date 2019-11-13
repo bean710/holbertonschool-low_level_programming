@@ -1,16 +1,29 @@
 #include "holberton.h"
 #include <elf.h>
 
-int main(void)
+int main(int argc, char **argv)
 {
 	ssize_t fd, read_res;
 	char buffer[16];
+	size_t i;
+	char match[4] = {0x7f, 'E', 'L', 'F'};
 
-	fd = open("elffile", O_RDONLY);
+	if (argc != 2)
+		err("Improper usage\n");
+
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		err("Could not open file\n");
 
 	read_res = read(fd, buffer, 16);
 	if (read_res < 0)
-		printf("foo\n");
+		err("Could not read from file\n");
+
+	for (i = 0; i < 4; i++)
+	{
+		if (buffer[i] != match[i])
+			err("Not an ELF file!\n");
+	}
 
 	printf("ELF Header:\n");
 	printmagic(buffer);
@@ -20,9 +33,21 @@ int main(void)
 	printos(buffer);
 	printabversion(buffer);
 
-	close(fd);
+	if (close(fd))
+		err("Could not close file");
 
 	return (0);
+}
+
+void err(char *msg)
+{
+	size_t len;
+
+	for (len = 0; msg[len]; len++)
+		;
+	write(STDERR_FILENO, msg, len);
+
+	exit(98);
 }
 
 void printabversion(char *buffer)
