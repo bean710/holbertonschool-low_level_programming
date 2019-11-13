@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	char buffer[1024];
 
 	if (argc != 3)
-		printerr("Usage: cp file_from file_t", "", 97);
+		printerr("Usage: cp file_from file_to", "", 97);
 
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to < 0)
