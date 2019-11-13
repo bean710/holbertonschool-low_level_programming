@@ -59,16 +59,7 @@ int main(int argc, char **argv)
  */
 void printerr(char *msg, char *file, int status)
 {
-	unsigned int msgsize;
-	int i;
-	char n = '\n';
+	dprintf(STDERR_FILENO, "%s%s\n", msg, file);
 
-	for (msgsize = 0; msg[msgsize]; msgsize++)
-		;
-	write(STDERR_FILENO, msg, msgsize);
-	for (i = 0; file[i]; i++)
-		;
-	write(STDERR_FILENO, file, i);
-	write(STDERR_FILENO, &n, 1);
 	exit(status);
 }
