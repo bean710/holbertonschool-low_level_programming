@@ -40,10 +40,10 @@ int main(int argc, char **argv)
 	} while (write_res == 1024);
 
 	if (close(fd_from))
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", (int)fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", (int)fd_from);
 
 	if (close(fd_to))
-		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", (int)fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", (int)fd_to);
 
 	return (0);
 }
