@@ -16,10 +16,7 @@ int main(int argc, char **argv)
 	char buffer[1024];
 
 	if (argc != 3)
-	{
-		write(STDERR_FILENO, "Usage: cp file_from file_to\n", 28);
-		exit(97);
-	}
+		printerr("Usage: cp file_from file_t", "", 97);
 
 	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to < 0)
@@ -40,10 +37,16 @@ int main(int argc, char **argv)
 	} while (write_res == 1024);
 
 	if (close(fd_from))
+	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (int)fd_from);
+		exit(100);
+	}
 
 	if (close(fd_to))
+	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (int)fd_to);
+		exit(100);
+	}
 
 	return (0);
 }
