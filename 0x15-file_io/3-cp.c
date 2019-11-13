@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from < 0)
-		printerr("Error: Can't read from ", argv[1], 98);
+		printerr("Error: Can't read from file ", argv[1], 98);
 
 	do {
 		read_res = read(fd_from, buffer, 1024);
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 			printerr("Error: Can't read from file ", argv[1], 98);
 
 		write_res = write(fd_to, buffer, read_res);
-		if (write_res < 0)
+		if (write_res < 0 || write_res != read_res)
 			printerr("Error: Can't write to ", argv[2], 99);
 	} while (write_res == 1024);
 
