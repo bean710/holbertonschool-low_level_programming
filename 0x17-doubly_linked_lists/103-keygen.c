@@ -2,42 +2,42 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char f1(char a)
+int f1(unsigned int a)
 {
 	return (a ^ 0x3b) & 0x3f;
 }
 
-char f2(char *a, int b)
+int f2(char *a, unsigned int b)
 {
-	char c = 0;
-	int d = 0;
-
-	while (d < b)
-	{
-		c += a[d];
-		++d;
-	}
-
-	return ((c ^ 0x4f) & 0x3f);
-}
-
-char f3(char *user, int len)
-{
-	char i = 1;
-
-	int j = 0;
-	while (j < len)
-	{
-		i *= user[j];
-		++j;
-	}
-
-	return ((i ^ 0x55) & 0x3f);
-}
-
-char f4(char *user, int len)
-{
+	unsigned int c = 0;
 	unsigned int i = 0;
+
+	while (i < b)
+	{
+		c += a[i];
+		++i;
+	}
+
+	return ((char)((c ^ 0x4f) & 0x3f));
+}
+
+int f3(char *user, unsigned int len)
+{
+	unsigned int c = 1;
+
+	unsigned int i = 0;
+	while (i < len)
+	{
+		c *= user[i];
+		++i;
+	}
+
+	return (char)((c ^ 0x55) & 0x3f);
+}
+
+int f4(char *user, int len)
+{
+	int i = 0;
 	char c = user[0];
 
 	while (i < len)
@@ -51,7 +51,7 @@ char f4(char *user, int len)
 	return (rand() & 0x3f);
 }
 
-char f5(char *user, int len)
+int f5(char *user, int len)
 {
 	char c = 0;
 	int i = 0;
@@ -65,10 +65,10 @@ char f5(char *user, int len)
 	return ((c ^ 0xef) & 0x3f);
 }
 
-char f6(char *user, int len)
+int f6(unsigned int len)
 {
-	char c = 0;
-	int i = 0;
+	unsigned int c = 0;
+	unsigned int i = 0;
 
 	while (i < len)
 	{
@@ -76,13 +76,13 @@ char f6(char *user, int len)
 		++i;
 	}
 
-	return ((c ^ 0xe5) & 0x3f);
+	return (char)((c ^ 0xe5) & 0x3f);
 }
 
 int main(int argc, char **argv)
 {
 	/**
-	char map[] = "A-CHRDw8", 
+	char map[] = "A-CHRDw8",
 		 m2[] = "7lNS0E9B",
 		 m3[] = "2TibgpnM",
 		 m4[] = "Vys5Xzvt",
@@ -91,14 +91,7 @@ int main(int argc, char **argv)
 		 m7[] = "ZeF3Qa1r",
 		 m8[] = "PhdKIouk";
 	**/
-	char map[] = "A-CHRDw8\
-				  7lNS0E9B\
-				  2TibgpnM\
-				  Vys5Xzvt\
-				  OGJcYLU+\
-				  4mjW6fxq\
-				  ZeF3Qa1r\
-				  PhdKIouk";
+	char map[] = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 
 	/**
 	long int offset;
@@ -129,7 +122,7 @@ int main(int argc, char **argv)
 	/**
 	const unsigned long int map = 0x3877445248432d41;
 	const unsigned long int ma2 = 0x42394530534e6c37;
-	const unsigned long int ma3 = 0x4d6e706762695432; 
+	const unsigned long int ma3 = 0x4d6e706762695432;
 	const unsigned long int ma4 = 0x74767a5835737956;
 	const unsigned long int ma5 = 0x2b554c59634a474f;
 	const unsigned long int ma6 = 0x71786636576a6d34;
@@ -137,28 +130,38 @@ int main(int argc, char **argv)
 	const unsigned long int ma8 = 0x6b756f494b646850;
 	**/
 
-	char *user = argv[1]; //var_60
+	char *user = argv[1];
 
-	long unsigned int ulen = strlen(user); //var_68
+	long unsigned int ulen = strlen(user);
 
 	char key[7];
-	key[6] = '\0';
 
+	/**
 	char c1 = *(char *)(map + f1(ulen));
 	char c2 = *(char *)(map + f2(user, ulen));
 	char c3 = *(char *)(map + f3(user, ulen));
 	char c4 = *(char *)(map + f4(user, ulen));
 	char c5 = *(char *)(map + f5(user, ulen));
-	char c6 = *(char *)(map + f6(user, ulen));
+	char c6 = *(char *)(map + f6(ulen));
+	**/
 
-	key[0] = c1;
-	key[1] = c2;
-	key[2] = c3;
-	key[3] = c4;
-	key[4] = c5;
-	key[5] = c6;
+	int c1 = f1(ulen);
+	int c2 = f2(user, ulen);
+	int c3 = f3(user, ulen);
+	int c4 = f4(user, ulen);
+	int c5 = f5(user, ulen);
+	int c6 = f6(user[0]);
 
-	printf("Key: %s\n", key);
+	key[0] = map[c1];
+	key[1] = map[c2];
+	key[2] = map[c3];
+	key[3] = map[c4];
+	key[4] = map[c5];
+	key[5] = map[c6];
+	key[6] = '\0';
 
+	printf("%s", key);
+
+	(void)(argc);
 	exit(0);
 }
