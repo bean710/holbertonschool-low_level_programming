@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * f3 - Gets the valid third char
+ * @user: Address of the first char in username
+ * @len: Length of the username
+ *
+ * Return: Index to use in map
+ */
 int f3(char *user, unsigned int len)
 {
 	unsigned int c = 1;
@@ -16,6 +23,13 @@ int f3(char *user, unsigned int len)
 	return ((c ^ 0x55) & 0x3f);
 }
 
+/**
+ * f4 - Gets the valid third char
+ * @user: Address of the first char in username
+ * @len: Length of the username
+ *
+ * Return: Index to use in map
+ */
 int f4(char *user, int len)
 {
 	int i = 0;
@@ -32,6 +46,13 @@ int f4(char *user, int len)
 	return (rand() & 0x3f);
 }
 
+/**
+ * f5 - Gets the valid third char
+ * @user: Address of the first char in username
+ * @len: Length of the username
+ *
+ * Return: Index to use in map
+ */
 int f5(char *user, int len)
 {
 	char c = 0;
@@ -46,6 +67,12 @@ int f5(char *user, int len)
 	return ((c ^ 0xef) & 0x3f);
 }
 
+/**
+ * f6 - Gets the valid third char
+ * @len: First char of username
+ *
+ * Return: Index to use in map
+ */
 int f6(unsigned int len)
 {
 	unsigned int c = 0;
@@ -60,6 +87,14 @@ int f6(unsigned int len)
 	return ((c ^ 0xe5) & 0x3f);
 }
 
+/**
+ * main - Generates a password for a given username
+ * @argc: Unused
+ * @argv: Pointer to first pointer in an array of pointers each pointing to
+ * the first char of an arg
+ *
+ * Return: Always 0
+ */
 int main(int argc, char **argv)
 {
 	char map[] =
@@ -93,5 +128,5 @@ int main(int argc, char **argv)
 	printf("%s", key);
 
 	(void)(argc);
-	exit(0);
+	return (0);
 }
