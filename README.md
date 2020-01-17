@@ -25,6 +25,9 @@ Project Directory | Project Topics/Tasks
 [0x12-singly_linked_lists](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x12-singly_linked_lists) | Using singly linked lists to easily pass around, print, and manipulate strings
 [0x13-more_singly_linked_lists](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x13-more_singly_linked_lists) | Using singly linked lists to manipulate sets of integers, along with detecting and dealing with loops in a linked list
 [0x14-bit_manipulation](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x14-bit_manipulation) | Using bitwise operators to get, set and otherwise manipulate the bit values of a number
+[0x15-file_io](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x15-file_io) | File input and output in C, including file permissions
+[0x17-doubly_linked_lists](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x17-doubly_linked_lists) | Creating and manipulating doubly-linked lists, including some algorithms
+[0x18-dynamic_libraries](https://github.com/bean710/holbertonschool-low_level_programming/tree/master/0x18-dynamic_libraries) | Creating and implementing dynamic C libraries using GCC
 
 Documentation By
 ---
