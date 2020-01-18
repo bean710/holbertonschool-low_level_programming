@@ -39,6 +39,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 	}
 
+	return (assign(key, value, ht));
+}
+
+/**
+ * assign - Assigns and mallocs values for the hash item
+ * @key: The hash item's key
+ * @value: The hash item's value
+ * @ht: Pointer to the target hash table
+ *
+ * Return: 1 for success, otherwie 0
+ */
+int assign(const char *key, const char *value, hash_table_t *ht)
+{
+	hash_node_t *node;
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+
 	node = malloc(sizeof(hash_node_t));
 	if (!node)
 		return (0);
