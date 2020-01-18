@@ -3,10 +3,16 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * shash_table_create - Creates a hash table with doubly-linked elements
+ * @size: The size of the hash table
+ *
+ * Return: Pointer to the created hash table
+ */
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *table = malloc(sizeof(shash_table_t));
-	
+
 	if (!table)
 		return (NULL);
 
@@ -25,10 +31,18 @@ shash_table_t *shash_table_create(unsigned long int size)
 	return (table);
 }
 
+/**
+ * shash_table_set - Sets a key of the hash table to a certain value
+ * @ht: Pointer to the hash table
+ * @key: The key to set the value of
+ * @value: The value to set at key
+ *
+ * Return: 1 on success, 0 on fail
+ */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	shash_node_t *node, *tmp, *prev;
+	shash_node_t *node;
 	char *nval;
 
 	if (!ht || !key || !*key || !value)
@@ -48,27 +62,38 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			{
 				free(node->value);
 				node->value = nval;
+				return (insert_sorted(ht, node, key));
 			}
 		}
 	}
-	else
+	node = malloc(sizeof(shash_node_t));
+	if (!node)
+		return (0);
+
+	node->key = strdup(key);
+	if (!node->key)
 	{
-		node = malloc(sizeof(shash_node_t));
-		if (!node)
-			return (0);
-
-		node->key = strdup(key);
-		if (!node->key)
-		{
-			free(node);
-			return (0);
-		}
-
-		node->value = nval;
-
-		node->next = ht->array[index];
-		ht->array[index] = node;
+		free(node);
+		return (0);
 	}
+
+	node->value = nval;
+	node->next = ht->array[index];
+	ht->array[index] = node;
+	return (insert_sorted(ht, node, key));
+}
+
+/**
+ * insert_sorted - Inserts a new table entry into the doubly-linked list
+ * @ht: Pointer to the hash table
+ * @node: The node to insert into the DLL
+ * @key: The key to use for position in the DLL
+ *
+ * Return: 1 for success
+ */
+int insert_sorted(shash_table_t *ht, shash_node_t *node, const char *key)
+{
+	shash_node_t *tmp, *prev;
 
 	if (ht->shead == NULL)
 	{
@@ -99,8 +124,16 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	prev->snext = node;
 	ht->stail = node;
 	return (1);
+
 }
 
+/**
+ * shash_table_get - Gets the value for a given key
+ * @ht: Pointer to the hash table
+ * @key: The key to get the value of
+ *
+ * Return: The value found
+ */
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
 	unsigned long int index = key_index((const unsigned char *)key, ht->size);
@@ -115,6 +148,10 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	return (NULL);
 }
 
+/**
+ * shash_table_print - Prints the hash table using the DLL
+ * @ht: Pointer to the hash table
+ */
 void shash_table_print(const shash_table_t *ht)
 {
 	shash_node_t *tmp;
@@ -136,6 +173,10 @@ void shash_table_print(const shash_table_t *ht)
 	printf("}\n");
 }
 
+/**
+ * shash_table_print_rev - Prints the hash table using the DLL, backwards
+ * @ht: Pointer to the hash table
+ */
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *tmp;
@@ -157,6 +198,10 @@ void shash_table_print_rev(const shash_table_t *ht)
 	printf("}\n");
 }
 
+/**
+ * shash_table_delete - Deletes all elements of the hash table
+ * @ht: Pointer to the hash table
+ */
 void shash_table_delete(shash_table_t *ht)
 {
 	shash_node_t *tmp;
