@@ -163,9 +163,13 @@ void shash_table_delete(shash_table_t *ht)
 
 	for (tmp = ht->shead; tmp->snext;)
 	{
+		free(tmp->key);
+		free(tmp->value);
 		tmp = tmp->snext;
 		free(tmp->sprev);
 	}
+	free(tmp->key);
+	free(tmp->value);
 	free(tmp);
 
 	free(ht->array);
