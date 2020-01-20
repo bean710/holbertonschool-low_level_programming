@@ -136,11 +136,13 @@ int insert_sorted(shash_table_t *ht, shash_node_t *node, const char *key)
  */
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
-	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+	unsigned long int index;
 	shash_node_t *tmp;
 
 	if (!key || !*key || !ht)
 		return (NULL);
+
+	index = key_index((const unsigned char *)key, ht->size);
 
 	for (tmp = ht->array[index]; tmp; tmp = tmp->next)
 	{
