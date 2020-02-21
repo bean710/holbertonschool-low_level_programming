@@ -3,8 +3,6 @@ SRC = main.c holberton.c
 OBJ := $(SRC:.c=.o)
 NAME = holberton
 
+.PHONY : all
 all : $(OBJ) m.h
 	$(CC) $(OBJ) -o $(NAME)
-
-%.o : %.c
-	$(CC) -c $< -o $@
