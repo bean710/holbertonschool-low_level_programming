@@ -4,5 +4,5 @@ OBJ := $(SRC:.c=.o)
 NAME = holberton
 
 .PHONY : all
-all : $(OBJ) m.h
+all : $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
