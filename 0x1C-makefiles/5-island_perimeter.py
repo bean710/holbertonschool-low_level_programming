@@ -8,10 +8,25 @@ def island_perimeter(grid):
     coord = [(1, 0), (0, 1), (-1, 0), (0, -1)]
     for y in range(len(grid)):
         for x in range(len(grid[0])):
-            for cx, cy in coord:
-                if (x + cx >= 0 and x + cx < len(grid[0]) and y + cy >= 0 and
-                        y + cy < len(grid) and grid[y + cy][x + cx] == 0 and
-                        grid[y][x] == 1):
+            if (grid[y][x] == 1):
+                if (y - 1 < 0):
+                    perimeter += 1
+                elif (grid[y - 1][x] == 0):
+                    perimeter += 1
+
+                if (y + 1 >= len(grid)):
+                    perimeter += 1
+                elif (grid[y + 1][x] == 0):
+                    perimeter += 1
+
+                if (x - 1 < 0):
+                    perimeter += 1
+                elif (grid[y][x - 1] == 0):
+                    perimeter += 1
+
+                if (x + 1 >= len(grid[0])):
+                    perimeter += 1
+                elif (grid[y][x + 1] == 0):
                     perimeter += 1
 
     return perimeter
