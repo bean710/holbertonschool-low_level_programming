@@ -61,7 +61,7 @@ int binary_search(int *array, size_t size, int value)
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	int lo = 1, hi;
+	int lo = 1, hi, ret;
 
 	if (!array)
 		return (-1);
@@ -81,5 +81,6 @@ int exponential_search(int *array, size_t size, int value)
 
 	lo /= 2;
 
-	return (binary_search(array + lo, hi - lo, value));
+	ret = binary_search(array + lo, hi - lo, value);
+	return (ret < 0 ? -1 : ret + lo);
 }
