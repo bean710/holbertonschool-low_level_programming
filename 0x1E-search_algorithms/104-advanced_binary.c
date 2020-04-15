@@ -19,6 +19,14 @@ void print_arr(int *arr, int begin, int end)
 	}
 }
 
+/**
+ * advanced_binary - Uses binary search to find the first ocurrence of a value
+ * @array: Pointer to the first item in the array
+ * @size: The size of the array
+ * @value: The value to look for
+ *
+ * Return: The index of the value if found, otherwise -1
+ */
 int advanced_binary(int *array, size_t size, int value)
 {
 	int mid, ret;
@@ -30,7 +38,7 @@ int advanced_binary(int *array, size_t size, int value)
 
 	if (size == 1 && array[0] != value)
 		return (-1);
-	
+
 	mid = (size - 1) / 2;
 	if (array[mid] < value)
 	{
@@ -40,7 +48,7 @@ int advanced_binary(int *array, size_t size, int value)
 	else if (array[mid] > value)
 		return (advanced_binary(array, size / 2 - 1, value));
 	else if (mid != 0)
-		return (advanced_binary(array, size / 2, value));
+		return (advanced_binary(array, size / 2 + 1, value));
 	else if (array[mid] == value)
 		return (mid);
 
