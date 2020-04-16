@@ -1,9 +1,17 @@
 #include "search_algos.h"
 #include <math.h>
 
+/**
+ * jump_list - Searches a linked list using jumping
+ * @list: Pointer to the first node
+ * @size: Size of the list
+ * @value: The value to look for
+ *
+ * Return: Pointer to the found node, or null
+ */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	int jsize = sqrt(size), i, index = 0, pindex;
+	int jsize = sqrt(size), i;
 	listint_t *n = list, *prev;
 
 	if (!list)
@@ -11,18 +19,19 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 
 	while (n->n < value && n->next)
 	{
-		printf("Value checked at index [%d] = [%d]\n", index, n->n);
 		prev = n;
-		pindex = index;
-		for (i = 0; n->next && i < jsize; i++, index++)
+		for (i = 0; n->next && i < jsize; i++)
 			n = n->next;
+		printf("Value checked at index [%d] = [%d]\n", (int)n->index, n->n);
 	}
 
-	printf("Value found between index [%d] and [%d]\n", pindex, index);
+	printf("Value found between index [%d] and [%d]\n", (int)prev->index,
+			(int)n->index);
 
-	for (; prev && pindex <= index; prev = prev->next, pindex++)
+	for (; prev; prev = prev->next)
 	{
-		printf("Value checked at index [%d] = [%d]\n", pindex, prev->n);
+		printf("Value checked at index [%d] = [%d]\n", (int)prev->index,
+				prev->n);
 		if (prev->n == value)
 			return (prev);
 	}
